@@ -54,4 +54,27 @@ public class Matrix {
         }
     }
 
+    // Метод для отримання рядка матриці
+    public void getRow(int row) {
+        System.out.println("Шуканий рядок " + row + ": ");
+        for (int j = 0; j < columns; j++)
+            System.out.print(data[row-1][j] + " ");
+        System.out.println();
+    }
+
+    // Метод для отримання стовпця матриці
+    public void getColumn(int column) {
+        System.out.println("Шуканий стовпець " + column + ": ");
+        for (int i = 0; i < rows; i++)
+            System.out.print(data[i][column-1] + " ");
+        System.out.println();
+    }
+
+    // Метод для отримання значення конкретного елемента матриці
+    public double getElement(int row, int column) {
+        System.out.println("Шуканий елемент [" + row + "][" + column + "]: ");
+        double el = data[row-1][column-1];
+        return el;
+    }
+
 }
