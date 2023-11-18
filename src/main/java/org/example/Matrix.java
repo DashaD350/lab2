@@ -77,4 +77,9 @@ public class Matrix {
         return el;
     }
 
+    // Метод для отримання розмірності матриці
+    public void getDimension() {
+        System.out.println("Матриця має розмірність: " + rows + " x " + columns);
+    }
+
 }
