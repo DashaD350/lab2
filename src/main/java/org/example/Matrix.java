@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Matrix {
 
@@ -34,6 +35,21 @@ public class Matrix {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 data[i][j] = random.nextFloat();;
+            }
+        }
+    }
+
+    // Метод для заповнення матриці значеннями
+    public void fillMatrix(int rows, int columns) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введіть значення для матриці " + rows + "x" + columns + ":");
+        this.rows = rows;
+        this.columns = columns;
+        this.data = new float[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Елемент [" + (i + 1) + "][" + (j + 1) + "]: ");
+                data[i][j] = Float.parseFloat(scanner.nextLine());
             }
         }
     }
