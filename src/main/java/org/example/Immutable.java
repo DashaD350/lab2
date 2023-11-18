@@ -26,6 +26,17 @@ public class Immutable {
         }
     }
 
+    //Конструктор для стоворення рандомної матриці
+    public void random(int rows, int columns){
+        this.data = new float[rows][columns];
+        Random random = new Random();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = random.nextFloat();;
+            }
+        }
+    }
+
     // Метод для заповнення матриці значеннями
     public void fillImmutable(int rows, int columns) {
         Scanner scanner = new Scanner(System.in);

@@ -29,7 +29,7 @@ public class Matrix {
         }
     }
 
-    //Метод для стоворення рандомної матриці
+    //Конструктор для стоворення рандомної матриці
     public void random(int rows, int columns){
         this.data = new float[rows][columns];
         Random random = new Random();
