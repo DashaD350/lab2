@@ -206,6 +206,22 @@ public class Matrix {
         }
     }
 
+    //Метод для стоворення одиничної матриці
+    public void identity(int n){
+        this.rows = n;
+        this.columns = n;
+        this.data = new float[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (i == j) {
+                    data[i][j] = 1;
+                } else {
+                    data[i][j] = 0.0f;
+                }
+            }
+        }
+    }
+
     // Метод для виведення матриці на екран
     public void printMatrix() {
         System.out.println("Ваша матриця: ");

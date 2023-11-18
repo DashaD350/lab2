@@ -118,7 +118,7 @@ public class Immutable {
     }
 
     //Метод для стоворення діагональної матриці на основі вектора
-    public void diagonal(float[] vector) {
+    public void diagonalImm(float[] vector) {
         this.rows = vector.length;
         this.columns = vector.length;
         this.data = new float[rows][columns];
@@ -127,6 +127,22 @@ public class Immutable {
             for (int j = 0; j < columns; j++) {
                 if (i == j) {
                     data[i][j] = vector[i];
+                } else {
+                    data[i][j] = 0.0f;
+                }
+            }
+        }
+    }
+
+    //Метод для стоворення одиничної матриці
+    public void identityImm(int n){
+        this.rows = n;
+        this.columns = n;
+        this.data = new float[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (i == j) {
+                    data[i][j] = 1;
                 } else {
                     data[i][j] = 0.0f;
                 }
