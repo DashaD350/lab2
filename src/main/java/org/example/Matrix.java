@@ -168,6 +168,27 @@ public class Matrix {
         return result;
     }
 
+    // Метод для отримання транспонованої матриці
+    public void transp() {
+        float[][] newData = new float[columns][rows];
+        System.out.println("Ваша транспонована матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                newData[j][i] = data[i][j];
+            }
+        }
+        data = newData;
+        int temp = rows;
+        rows = columns;
+        columns = temp;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     // Метод для виведення матриці на екран
     public void printMatrix() {
         System.out.println("Ваша матриця: ");
