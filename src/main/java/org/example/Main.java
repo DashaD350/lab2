@@ -7,6 +7,6 @@ public class Main {
         Matrix mat1 = new Matrix();
         Matrix mat2 = new Matrix();
         Matrix mat3 = new Matrix();
-
+        Immutable matr = new Immutable();
     }
 }

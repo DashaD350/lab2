@@ -9,6 +9,8 @@ public class Immutable {
     private int columns;
     private float[][] data;
 
+    public Immutable(){}
+
     // Конструктор для створення порожньої матриці
     public void emptyImmutable(int rows, int columns) {
         this.rows = rows;
@@ -101,6 +103,30 @@ public class Immutable {
     public int hashCode() {
         int result = Arrays.deepHashCode(data);
         return result;
+    }
+
+    // Метод для додавання матриць
+    public Immutable add(Matrix other) {
+        System.out.println("Дану операцію не можна провести з класом Immutable");
+        return null;
+    }
+
+    // Метод для множення на скаляр
+    public Immutable scalarM(float scalar) {
+        System.out.println("Дану операцію не можна провести з класом Immutable");
+        return null;
+    }
+
+    // Метод для виведення матриці на екран
+    public void printImmutable() {
+        System.out.println("Ваша матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
 }

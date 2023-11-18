@@ -105,4 +105,55 @@ public class Matrix {
         return result;
     }
 
+    // Метод для додавання матриць
+    public Matrix add(Matrix other) {
+        if (this.rows != other.rows || this.columns != other.columns) {
+            throw new IllegalArgumentException("Розміри матриць не співпадають");
+        }
+        Matrix result = new Matrix();
+        System.out.println("Ваша нова матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = this.data[i][j] + other.data[i][j];
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return result;
+    }
+
+    // Метод для множення на скаляр
+    public void scalarM(float scalar) {
+        Matrix result = new Matrix();
+        System.out.println("Ваша нова матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = this.data[i][j] * scalar;
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Метод для виведення матриці на екран
+    public void printMatrix() {
+        System.out.println("Ваша матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+
 }
