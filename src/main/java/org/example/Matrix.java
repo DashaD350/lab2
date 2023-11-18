@@ -40,6 +40,13 @@ public class Matrix {
                 data[i][j] = randomInt;
             }
         }
+        System.out.println("Ваша матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     // Метод для заповнення матриці значеннями
@@ -251,7 +258,11 @@ public class Matrix {
     }
 
     // Метод, що перетворює матрицю в нижню та верхню трикутну
-    public void luDecomp(int n){
+    public Object luDecomp(int n){
+        if(rows != columns){
+            System.out.println("Неправильна розмірність");
+            return null;
+        }
         float[][] lower = new float[n][n];
         float[][] upper = new float[n][n];
 
@@ -291,6 +302,7 @@ public class Matrix {
             }
             System.out.println();
         }
+        return null;
     }
 
 
