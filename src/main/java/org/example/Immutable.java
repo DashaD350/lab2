@@ -150,6 +150,32 @@ public class Immutable {
         }
     }
 
+    //Метод для стоворення рандомної матриці-строки
+    public void randomRowImm(int n){
+        this.rows = n;
+        this.columns = 1;
+        this.data = new float[rows][columns];
+        Random random = new Random();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = random.nextFloat();;
+            }
+        }
+    }
+
+    //Метод для стоворення рандомної матриці-стовпця
+    public void randomCoulumnImm(int n){
+        this.rows = 1;
+        this.columns = n;
+        this.data = new float[rows][columns];
+        Random random = new Random();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = random.nextFloat();;
+            }
+        }
+    }
+
     // Метод для виведення матриці на екран
     public void printImmutable() {
         System.out.println("Ваша матриця: ");
