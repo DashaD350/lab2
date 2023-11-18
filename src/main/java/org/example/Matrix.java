@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -80,6 +81,28 @@ public class Matrix {
     // Метод для отримання розмірності матриці
     public void getDimension() {
         System.out.println("Матриця має розмірність: " + rows + " x " + columns);
+    }
+
+    //Метод equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        Matrix other = (Matrix) obj;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        for (int i = 0; i < rows; i++) {
+            if (!Arrays.equals(data[i], other.data[i])) return false;
+        }
+        for (int i = 0; i < columns; i++) {
+            if (!Arrays.equals(data[i], other.data[i])) return false;
+        }
+        return true;
+    }
+
+    //Метод hashCode
+    @Override
+    public int hashCode() {
+        int result = Arrays.deepHashCode(data);
+        return result;
     }
 
 }
