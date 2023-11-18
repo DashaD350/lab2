@@ -143,6 +143,31 @@ public class Matrix {
         }
     }
 
+    // Метод для множення матриць
+    public Matrix multiply(Matrix other) {
+        if (this.columns != other.rows) {
+            throw new IllegalArgumentException("Несумісна розмірність");
+        }
+        Matrix result = new Matrix();
+        System.out.println("Ваша нова матриця: ");
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < other.columns; j++) {
+                float sum = 0;
+                for (int k = 0; k < this.columns; k++) {
+                    sum += this.data[i][k] * other.data[k][j];
+                }
+                data[i][j] = sum;
+            }
+        }
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < other.columns; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return result;
+    }
+
     // Метод для виведення матриці на екран
     public void printMatrix() {
         System.out.println("Ваша матриця: ");
@@ -154,6 +179,5 @@ public class Matrix {
         }
         System.out.println();
     }
-
 
 }
