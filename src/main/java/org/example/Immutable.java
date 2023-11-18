@@ -29,12 +29,14 @@ public class Immutable {
     }
 
     //Конструктор для стоворення рандомної матриці
-    public void random(int rows, int columns){
+    public void random(int rows, int columns, int minValue, int maxValue) {
         this.data = new float[rows][columns];
         Random random = new Random();
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                data[i][j] = random.nextFloat();;
+                int randomInt = random.nextInt(maxValue - minValue + 1) + minValue;
+                data[i][j] = randomInt;
             }
         }
     }

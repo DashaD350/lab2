@@ -30,12 +30,14 @@ public class Matrix {
     }
 
     //Конструктор для стоворення рандомної матриці
-    public void random(int rows, int columns){
+    public void random(int rows, int columns, int minValue, int maxValue) {
         this.data = new float[rows][columns];
         Random random = new Random();
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                data[i][j] = random.nextFloat();;
+                int randomInt = random.nextInt(maxValue - minValue + 1) + minValue;
+                data[i][j] = randomInt;
             }
         }
     }
@@ -53,6 +55,11 @@ public class Matrix {
                 data[i][j] = Float.parseFloat(scanner.nextLine());
             }
         }
+    }
+
+    // Метод для отримання розмірності матриці
+    public void getDimension() {
+        System.out.println("Матриця має розмірність: " + rows + " x " + columns);
     }
 
     // Метод для отримання рядка матриці
@@ -76,11 +83,6 @@ public class Matrix {
         System.out.println("Шуканий елемент [" + row + "][" + column + "]: ");
         double el = data[row-1][column-1];
         return el;
-    }
-
-    // Метод для отримання розмірності матриці
-    public void getDimension() {
-        System.out.println("Матриця має розмірність: " + rows + " x " + columns);
     }
 
     //Метод equals
@@ -247,6 +249,50 @@ public class Matrix {
             }
         }
     }
+
+    // Метод, що перетворює матрицю в нижню та верхню трикутну
+    public void luDecomp(int n){
+        float[][] lower = new float[n][n];
+        float[][] upper = new float[n][n];
+
+        for (int i = 0; i < n; i++)
+        {
+            for (int k = i; k < n; k++)
+            {
+                float sum = 0;
+                for (int j = 0; j < i; j++)
+                    sum += (lower[i][j] * upper[j][k]);
+                upper[i][k] = data[i][k] - sum;
+            }
+            for (int k = i; k < n; k++)
+            {
+                if (i == k)
+                    lower[i][i] = 1;
+                else
+                {
+                    float sum = 0;
+                    for (int j = 0; j < i; j++)
+                        sum += (lower[k][j] * upper[j][i]);
+                    lower[k][i] = (data[k][i] - sum) / upper[i][i];
+                }
+            }
+        }
+        System.out.println("Ваша верхня матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(upper[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Ваша нижня матриця: ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(lower[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
 
     // Метод для виведення матриці на екран
     public void printMatrix() {
